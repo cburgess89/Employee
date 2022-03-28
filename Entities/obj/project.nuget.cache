@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "hy6fcNe7sPT2WPjL2o0FNZO/UljQ/aAzzx50I6yMeFO656WW658rM18bt1u7SDQGTREeuFxTTZtuEyMVP1vFmw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chase\\Documents\\GitHub\\Employee\\Entities\\Entities.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chase\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Chase\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
