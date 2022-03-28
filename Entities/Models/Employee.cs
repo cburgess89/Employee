@@ -1,5 +1,5 @@
 ﻿
-namespace Entities.Model
+namespace Entities.Models
 {
     public class Employee
     {

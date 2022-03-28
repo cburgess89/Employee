@@ -14,4 +14,12 @@ namespace Entities.DTO
         public string? Department { get; set; }
         public DateTime? HireDate { get; set; }
     }
+
+    public class Employee_DTO_InsertUpdate
+    {
+        public string LastName { get; set; }
+        public string FirstName { get; set; }
+        public string Department { get; set; }
+        public DateTime? HireDate { get; set; }
+    }
 }

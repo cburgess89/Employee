@@ -1,4 +1,4 @@
-﻿using Entities.Model;
+﻿using Entities.Models;
 using Entities.DTO;
 using AutoMapper;
 
@@ -9,6 +9,7 @@ namespace Entities.AutoMapper
         public AutomapperProfile()
         {
             CreateMap<Employee, Employee_DTO>().ReverseMap();
+            CreateMap<Employee, Employee_DTO_InsertUpdate>().ReverseMap();
         }
     }
 }
