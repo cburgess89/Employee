@@ -35,50 +35,11 @@ namespace Data
                 entity.Property(e => e.Department)
                     //.IsRequired()
                     .HasMaxLength(100)
-                    //.HasDefaultValueSql("(N'')")
                     ;               
 
                 entity.Property(e => e.HireDate)
-                    //.IsRequired()
-                    //.HasDefaultValueSql("(N'')")
                     ;                    
-            });
-
-            //modelBuilder.Entity<Employee>().HasData(
-            //    new Employee
-            //    {
-            //        Id = 1,
-            //        LastName = "Jackson",
-            //        FirstName = "Alberta",
-            //        Department = "Finance",
-            //        HireDate = DateTime.Parse("6/5/2007")
-
-            //    }
-            //    ,new Employee 
-            //    {
-            //        Id = 2,
-            //        LastName = "Bennett",
-            //        FirstName = "Alicia",
-            //        Department = "Human Resources",
-            //        HireDate = DateTime.Parse("4/15/2001")
-            //    }
-            //    , new Employee
-            //    {
-            //        Id = 3,
-            //        LastName = "Avent",
-            //        FirstName = "Donna",
-            //        Department = "Revenue",
-            //        HireDate = DateTime.Parse("4/20/2009")
-            //    }
-            //    , new Employee
-            //    {
-            //        Id = 4,
-            //        LastName = "Holder",
-            //        FirstName = "Duane",
-            //        Department = "Human Services",
-            //        HireDate = DateTime.Parse("8/15/2020")
-            //    }    
-            //);
+            });            
         }
     }
 }

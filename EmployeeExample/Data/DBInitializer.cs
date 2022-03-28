@@ -10,15 +10,7 @@ namespace Data
 {
     public interface IDbInitializer
     {
-        /// <summary>
-        /// Applies any pending migrations for the context to the database.
-        /// Will create the database if it does not already exist.
-        /// </summary>
-        //void Initialize();
-
-        /// <summary>
-        /// Adds some default values to the Db
-        /// </summary>
+        // Adds some default values to the Db      
         void SeedData();
     }
 
@@ -30,26 +22,14 @@ namespace Data
         {
             this._scopeFactory = scopeFactory;
         }
-
-        //public void Initialize()
-        //{
-        //    using (var serviceScope = _scopeFactory.CreateScope())
-        //    {
-        //        using (var context = serviceScope.ServiceProvider.GetService<SolutionDatabaseContext>())
-        //        {
-        //            context.Database.Migrate();
-        //        }
-        //    }
-        //}
-
+        
         public void SeedData()
         {
             using (var serviceScope = _scopeFactory.CreateScope())
             {
                 using (var context = serviceScope.ServiceProvider.GetService<SolutionDatabaseContext>())
                 {
-
-                    //add admin user
+                    //confirm there are no users, then seed supplied employees
                     if (!context.Employees.Any())
                     {
                         context.Employees.AddRangeAsync(

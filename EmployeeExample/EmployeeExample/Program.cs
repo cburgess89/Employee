@@ -1,13 +1,14 @@
 using EmployeeExample;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Using custom Startup file just to keep things to a familiar, cleaner structure
 var startup = new Startup(builder.Configuration);
 
-// Add services to the container.
 startup.ConfigureServices(builder.Services);
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 startup.Configure(app);
 
 app.Run();

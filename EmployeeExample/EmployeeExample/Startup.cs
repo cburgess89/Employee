@@ -20,13 +20,14 @@ namespace EmployeeExample
             services.AddControllers(opt => {
 
             }).AddNewtonsoftJson(options => {
+                //following pattern of lower case first, then camel case after
                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             });
             services.AddEndpointsApiExplorer();
             services.AddSwaggerGen();
             services.AddAutoMapper(typeof(AutomapperProfile));
 
-            //Database context
+            //Database context, would swap this out with an environment based SQL connection from appsettings
             services.AddDbContext<SolutionDatabaseContext>(opt => opt.UseInMemoryDatabase(databaseName: "Example"));
 
             //Repositories -------------------------------------------------------------------------------
@@ -34,6 +35,7 @@ namespace EmployeeExample
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             //End of Repositories ------------------------------------------------------------------------
 
+            //Versioning
             services.AddApiVersioning(config =>
             {
                 config.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(1, 0);
@@ -61,7 +63,7 @@ namespace EmployeeExample
 
             app.UseRouting();
             app.UseAuthorization();
-            app.UseEndpoints(x => x.MapControllers());
+            app.UseEndpoints(x => x.MapControllers());            
         }
     }
 }

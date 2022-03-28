@@ -22,8 +22,8 @@ namespace EmployeeExample.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet()]
-        public async Task<ActionResult> GetEmployees()
+        [HttpGet(Name = "GetEmployees")]
+        public async Task<ActionResult<List<Employee_DTO>>> GetEmployees()
         {
             try
             {
@@ -36,8 +36,8 @@ namespace EmployeeExample.Controllers
             }
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult> GetEmployee(int id)
+        [HttpGet("{id}", Name = "GetEmployee")]
+        public async Task<ActionResult<Employee_DTO>> GetEmployee(int id)
         {
             try
             {
@@ -46,7 +46,7 @@ namespace EmployeeExample.Controllers
                 {
                     return NotFound();
                 }
-                return Ok(_mapper.Map<Employee_DTO[]>(_returned));
+                return Ok(_mapper.Map<Employee_DTO>(_returned));
             }
             catch (Exception e)
             {
@@ -54,8 +54,8 @@ namespace EmployeeExample.Controllers
             }
         }
 
-        [HttpPost()]
-        public async Task<ActionResult> AddEmployee(Employee_DTO_InsertUpdate _newEmployee)
+        [HttpPost(Name = "PostEmployee")]        
+        public async Task<ActionResult<Employee_DTO>> PostEmployee(Employee_DTO_InsertUpdate _newEmployee)
         {
             try
             {
@@ -66,8 +66,8 @@ namespace EmployeeExample.Controllers
 
                 Employee _employee = _mapper.Map<Employee>(_newEmployee);
                 _repositoryWrapper.EmployeeRepository.Create(_employee);
-                await _repositoryWrapper.SaveAsync();
-                return CreatedAtAction(nameof(GetEmployee), _employee.Id, _employee);
+                await _repositoryWrapper.SaveAsync();                
+                return CreatedAtRoute("GetEmployee", new { id = _employee.Id }, _employee);
             }
             catch (Exception e)
             {
