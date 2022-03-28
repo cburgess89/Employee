@@ -27,7 +27,7 @@ namespace Data.Repositories
 
         public async Task<IEnumerable<Employee>> GetAllSorted()
         {
-            IEnumerable<Employee> _all = await _db.Employees.OrderBy(e => e.LastName).ThenBy(e => e.FirstName).ToListAsync();
+            IEnumerable<Employee> _all = await _db.Employees.OrderBy(e => e.LastName).ThenBy(e => e.FirstName).AsNoTracking().ToListAsync();
             return _all;
         }
 
