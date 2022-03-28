@@ -23,12 +23,12 @@ namespace EmployeeExample.Controllers
         }
 
         [HttpGet(Name = "GetEmployees")]
-        public async Task<ActionResult<List<Employee_DTO>>> GetEmployees()
+        public async Task<ActionResult<List<Employee_DTO_Mini>>> GetEmployees()
         {
             try
             {
-                var _returned = await _repositoryWrapper.EmployeeRepository.FindAll();
-                return Ok(_mapper.Map<Employee_DTO[]>(_returned));
+                var _returned = await _repositoryWrapper.EmployeeRepository.GetAllSorted();
+                return Ok(_mapper.Map<Employee_DTO_Mini[]>(_returned));
             }
             catch (Exception e)
             {

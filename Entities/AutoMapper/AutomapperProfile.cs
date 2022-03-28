@@ -10,6 +10,7 @@ namespace Entities.AutoMapper
         {
             CreateMap<Employee, Employee_DTO>().ReverseMap();
             CreateMap<Employee, Employee_DTO_InsertUpdate>().ReverseMap();
+            CreateMap<Employee, Employee_DTO_Mini>().ReverseMap();
         }
     }
 }

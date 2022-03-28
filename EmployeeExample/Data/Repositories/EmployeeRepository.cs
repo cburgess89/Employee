@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.Models;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace Data.Repositories
 {
     public interface IEmployeeRepository : IBaseRepository<Employee>
     {
-
+        Task<IEnumerable<Employee>> GetAllSorted();
     }
 
     public class EmployeeRepository : BaseRepository<Employee>, IEmployeeRepository
@@ -23,7 +24,13 @@ namespace Data.Repositories
             _db = context;
             _mapper = mapper;
         }
-        
+
+        public async Task<IEnumerable<Employee>> GetAllSorted()
+        {
+            IEnumerable<Employee> _all = await _db.Employees.OrderBy(e => e.LastName).ThenBy(e => e.FirstName).ToListAsync();
+            return _all;
+        }
+
         //Base repository abstracts the standard functions
     }
 }
