@@ -2,9 +2,10 @@
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Newtonsoft.Json.Serialization;
 using Data.Repositories;
-using Microsoft.EntityFrameworkCore.InMemory;
 using Data;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using System.Reflection;
 
 namespace EmployeeExample
 {
@@ -44,6 +45,11 @@ namespace EmployeeExample
                 config.ApiVersionReader = new QueryStringApiVersionReader("version");
             });
 
+            services.AddMediatR(config =>
+            {
+                //Register all Mediatr handlers from any project
+                config.RegisterServicesFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            });
         }
         public void Configure(IApplicationBuilder app)
         {

@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Entities.Models;
 using Entities.DTO;
+using MediatR;
+using Data.Mediatr.Queries;
 
 namespace EmployeeExample.Controllers
 {
@@ -15,25 +17,21 @@ namespace EmployeeExample.Controllers
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IMapper _mapper;
+        private readonly IMediator _mediator;
 
-        public EmployeesController(IRepositoryWrapper repositoryWrapper, IMapper mapper)
+        public EmployeesController(IRepositoryWrapper repositoryWrapper, IMapper mapper, IMediator mediator)
         {
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
+            _mediator = mediator;
         }
 
         [HttpGet(Name = "GetEmployees")]
         public async Task<ActionResult<List<Employee_DTO_Mini>>> GetEmployees()
         {
-            try
-            {
-                var _returned = await _repositoryWrapper.EmployeeRepository.GetAllSorted();
-                return Ok(_mapper.Map<Employee_DTO_Mini[]>(_returned));
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message + ". Inner Exception: " + e.InnerException.Message);
-            }
+            var query = new GetAllEmployeesQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);            
         }
 
         [HttpGet("{id}", Name = "GetEmployee")]

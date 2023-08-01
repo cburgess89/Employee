@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "m48w99XhG/lPZbNiIyRYzmiHxxm/k/y2KRqTmb3UUQINuK06F+51yXQUnKe38fYbgKY9NZt5BMGAhUTBFPCMVw==",
+  "dgSpecHash": "skIRsIf58lxQPTynluLyeo/4wlom3tRl/miUSbgQDLAB+LL7BiiGAKu0K+OMD4874m4+Js8wykCggo4pDOVChQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\charles.burgess\\source\\repos\\Employee\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\charles.burgess\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\charles.burgess\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\charles.burgess\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
   ],
   "logs": []

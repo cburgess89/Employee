@@ -1,0 +1,15 @@
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\bin\Debug\net7.0\Data.deps.json
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\bin\Debug\net7.0\Data.dll
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\bin\Debug\net7.0\Data.pdb
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\bin\Debug\net7.0\Entities.dll
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\bin\Debug\net7.0\Entities.pdb
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.csproj.AssemblyReference.cache
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.AssemblyInfoInputs.cache
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.AssemblyInfo.cs
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.csproj.CopyComplete
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.dll
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\refint\Data.dll
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\Data.pdb
+C:\Users\charles.burgess\source\repos\Employee\EmployeeExample\Data\obj\Debug\net7.0\ref\Data.dll
