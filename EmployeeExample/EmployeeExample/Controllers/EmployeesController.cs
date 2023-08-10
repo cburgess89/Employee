@@ -6,6 +6,7 @@ using Entities.Models;
 using Entities.DTO;
 using MediatR;
 using Data.Mediatr.Queries;
+using Data.Mediatr.Commands;
 
 namespace EmployeeExample.Controllers
 {
@@ -15,14 +16,10 @@ namespace EmployeeExample.Controllers
     [Route("API/[controller]")]
     public class EmployeesController : ControllerBase
     {
-        private readonly IRepositoryWrapper _repositoryWrapper;
-        private readonly IMapper _mapper;
         private readonly IMediator _mediator;
 
-        public EmployeesController(IRepositoryWrapper repositoryWrapper, IMapper mapper, IMediator mediator)
+        public EmployeesController(IMediator mediator)
         {
-            _repositoryWrapper = repositoryWrapper;
-            _mapper = mapper;
             _mediator = mediator;
         }
 
@@ -37,40 +34,16 @@ namespace EmployeeExample.Controllers
         [HttpGet("{id}", Name = "GetEmployee")]
         public async Task<ActionResult<Employee_DTO>> GetEmployee(int id)
         {
-            try
-            {
-                var _returned = await _repositoryWrapper.EmployeeRepository.FindSingleByCondition(e => e.Id == id);
-                if(_returned == null)
-                {
-                    return NotFound();
-                }
-                return Ok(_mapper.Map<Employee_DTO>(_returned));
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message + ". Inner Exception: " + e.InnerException.Message);
-            }
+            var query = new GetEmployeeByIdQuery(id);
+            var result = await _mediator.Send(query);
+            return result != null ? Ok(result) : NotFound();            
         }
 
         [HttpPost(Name = "PostEmployee")]        
-        public async Task<ActionResult<Employee_DTO>> PostEmployee(Employee_DTO_InsertUpdate _newEmployee)
+        public async Task<ActionResult<Employee_DTO>> PostEmployee(Employee_DTO_InsertUpdate command)
         {
-            try
-            {
-                if (_newEmployee == null)
-                {
-                    return BadRequest($"No payload sent");
-                }
-
-                Employee _employee = _mapper.Map<Employee>(_newEmployee);
-                _repositoryWrapper.EmployeeRepository.Create(_employee);
-                await _repositoryWrapper.SaveAsync();                
-                return CreatedAtRoute("GetEmployee", new { id = _employee.Id }, _employee);
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message + ". Inner Exception: " + e.InnerException.Message);
-            }
+            var result = await _mediator.Send(command);
+            return CreatedAtRoute("GetEmployee", new { id = result.Id }, result);            
         }
     }
 }

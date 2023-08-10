@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediatR;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Entities.DTO
         public string? Department { get; set; }        
     }
 
-    public class Employee_DTO_InsertUpdate
+    public class Employee_DTO_InsertUpdate : IRequest<Employee_DTO>
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }

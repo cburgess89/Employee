@@ -6,11 +6,11 @@ using AutoMapper;
 
 namespace Data.Mediatr.Handlers
 {
-    public class GetAllOrdersHandler: IRequestHandler<GetAllEmployeesQuery, List<Employee_DTO_Mini>>
+    public class GetAllEmployeesHandler: IRequestHandler<GetAllEmployeesQuery, List<Employee_DTO_Mini>>
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IMapper _mapper;
-        public GetAllOrdersHandler(IRepositoryWrapper repositoryWrapper, IMapper mapper)
+        public GetAllEmployeesHandler(IRepositoryWrapper repositoryWrapper, IMapper mapper)
         {
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
