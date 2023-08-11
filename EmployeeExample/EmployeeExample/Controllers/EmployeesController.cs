@@ -6,7 +6,6 @@ using Entities.Models;
 using Entities.DTO;
 using MediatR;
 using Data.Mediatr.Queries;
-using Data.Mediatr.Commands;
 
 namespace EmployeeExample.Controllers
 {

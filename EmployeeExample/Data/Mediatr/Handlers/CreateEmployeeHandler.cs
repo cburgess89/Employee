@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Data.Mediatr.Commands;
 using Data.Mediatr.Queries;
 using Data.Repositories;
 using Entities.DTO;
